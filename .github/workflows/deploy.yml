@@ -1,9 +1,11 @@
 name: Build and Deploy React Frontend to EC2
 
+
 on:
   push:
     branches:
       - main
+  workflow_dispatch:  # این خط اجازه می‌ده دستی از گیت‌هاب اجرا کنی با آخرین کد
 
 jobs:
   build-and-deploy:
