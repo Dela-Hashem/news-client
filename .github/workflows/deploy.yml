@@ -3,8 +3,7 @@ name: Build and Deploy React Frontend to EC2
 on:
   push:
     branches:
-      - main  # یا branch دلخواه شما
-
+      - main
 
 jobs:
   build-and-deploy:
@@ -16,8 +15,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Show latest commit
+      - name: Check current commit
+        run: git log -1
+
+      - name: Show latest commit hash
         run: git rev-parse HEAD
+
+      - name: Clean old node_modules and build folders
+        run: |
+          rm -rf node_modules
+          rm -rf build
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
