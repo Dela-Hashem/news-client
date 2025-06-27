@@ -4,7 +4,7 @@ function NewsList() {
   const [newsList, setNewsList] = useState([]);
 
   useEffect(() => {
-    fetch("http://3.106.73.211:8080/api/news")
+    fetch("/api/news")
       .then(res => res.json())
       .then(data => setNewsList(data))
       .catch(err => console.error(err));
