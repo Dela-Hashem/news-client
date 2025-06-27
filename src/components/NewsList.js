@@ -3,12 +3,17 @@ import React, { useState, useEffect } from 'react';
 function NewsList() {
   const [newsList, setNewsList] = useState([]);
 
+  const apiBaseUrl = process.env.NODE_ENV === "development" 
+    ? "http://localhost:8080/api/news"
+    : "/api/news";
+
   useEffect(() => {
-    fetch("/api/news")
+    fetch(apiBaseUrl)
       .then(res => res.json())
       .then(data => setNewsList(data))
       .catch(err => console.error(err));
   }, []);
+
 
   return (
     <div>
