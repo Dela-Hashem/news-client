@@ -2,9 +2,10 @@ import React from 'react';
 import NewsList from './components/NewsList';
 
 function App() {
+
+  console.log("real deploy test");
+
   return (
-    // مثلا تو App.js
-    console.log("deploy test");
     <div className="App">
       <NewsList />
     </div>
