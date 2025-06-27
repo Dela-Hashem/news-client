@@ -15,16 +15,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check current commit
-        run: git log -1
-
       - name: Show latest commit hash
         run: git rev-parse HEAD
-
-      - name: Clean old node_modules and build folders
-        run: |
-          rm -rf node_modules
-          rm -rf build
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -33,6 +25,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Show latest commit details
+        run: git log -1
 
       - name: Build the React app
         run: npm run build
